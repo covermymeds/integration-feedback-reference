@@ -11,6 +11,9 @@ namespace Script106
         private void TestStuff()
         {
             NCPDP.org.schema.SCRIPT.RxChangeResponse RxResp = new NCPDP.org.schema.SCRIPT.RxChangeResponse();
+            NCPDP.org.schema.SCRIPT.HeaderType ht = new NCPDP.org.schema.SCRIPT.HeaderType();
+            
+            NCPDP.org.schema.SCRIPT.HeaderTypeTO to = new NCPDP.org.schema.SCRIPT.HeaderTypeTO();
             
         }
     }
