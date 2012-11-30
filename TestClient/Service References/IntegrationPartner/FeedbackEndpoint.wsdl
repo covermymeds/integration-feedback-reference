@@ -9,18 +9,6 @@
       <xsd:import schemaLocation="http://localhost:19076/IFeedbackEndpoint.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IFeedbackService_GetData_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetData" />
-  </wsdl:message>
-  <wsdl:message name="IFeedbackService_GetData_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataResponse" />
-  </wsdl:message>
-  <wsdl:message name="IFeedbackService_GetDataUsingDataContract_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContract" />
-  </wsdl:message>
-  <wsdl:message name="IFeedbackService_GetDataUsingDataContract_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDataUsingDataContractResponse" />
-  </wsdl:message>
   <wsdl:message name="IFeedbackService_UpdatePriorAuthorizationRequest_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdatePriorAuthorizationRequest" />
   </wsdl:message>
@@ -28,14 +16,6 @@
     <wsdl:part name="parameters" element="tns:UpdatePriorAuthorizationRequestResponse" />
   </wsdl:message>
   <wsdl:portType name="IFeedbackService">
-    <wsdl:operation name="GetData">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackService/GetData" message="tns:IFeedbackService_GetData_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackService/GetDataResponse" message="tns:IFeedbackService_GetData_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackService/GetDataUsingDataContract" message="tns:IFeedbackService_GetDataUsingDataContract_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackService/GetDataUsingDataContractResponse" message="tns:IFeedbackService_GetDataUsingDataContract_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="UpdatePriorAuthorizationRequest">
       <wsdl:input wsaw:Action="http://tempuri.org/IFeedbackService/UpdatePriorAuthorizationRequest" message="tns:IFeedbackService_UpdatePriorAuthorizationRequest_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFeedbackService/UpdatePriorAuthorizationRequestResponse" message="tns:IFeedbackService_UpdatePriorAuthorizationRequest_OutputMessage" />
@@ -43,24 +23,6 @@
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFeedbackService" type="tns:IFeedbackService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetData">
-      <soap:operation soapAction="http://tempuri.org/IFeedbackService/GetData" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetDataUsingDataContract">
-      <soap:operation soapAction="http://tempuri.org/IFeedbackService/GetDataUsingDataContract" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="UpdatePriorAuthorizationRequest">
       <soap:operation soapAction="http://tempuri.org/IFeedbackService/UpdatePriorAuthorizationRequest" style="document" />
       <wsdl:input>

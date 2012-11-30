@@ -31,6 +31,27 @@ namespace CoverMyMeds.Feedback.TestClient
         {
             List<IntegrationPartner.RecipientType> lsRet = new List<IntegrationPartner.RecipientType>();
 
+            // User with active access to the PA request
+            IntegrationPartner.RecipientType NormalUser = new IntegrationPartner.RecipientType()
+            {
+                Identifier = "UserXYZ123",
+                RecipientClass = IntegrationPartner.RecipientClassType.User,
+                PresentOnDashboard = true
+            };
+            // A group that a user with membership in will have access to a PA request
+            IntegrationPartner.RecipientType GroupRecipient = new IntegrationPartner.RecipientType()
+            {
+                Identifier = "GroupID456",
+                RecipientClass = IntegrationPartner.RecipientClassType.Group,
+                PresentOnDashboard = true
+            };
+            // A user who no longer wishes to see or be alerted about the PA. Archived request
+            IntegrationPartner.RecipientType PastUser = new IntegrationPartner.RecipientType()
+            {
+                Identifier = "UserXYZ123",
+                RecipientClass = IntegrationPartner.RecipientClassType.User,
+                PresentOnDashboard = false
+            };
             return lsRet.ToArray();
         }
 

@@ -56,9 +56,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Service References\IntegrationPartner\CoverMyMeds.Feedback.TestClient.IntegrationPartner.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\IntegrationPartner\FeedbackEndpoint.wsdl" />
     <None Include="Service References\IntegrationPartner\IFeedbackEndpoint.xsd">
       <SubType>Designer</SubType>

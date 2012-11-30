@@ -34,7 +34,7 @@ namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
     }
 
     [System.SerializableAttribute()]
-    public enum RecipientIdentifierType
+    public enum RecipientClassType
     {
         User,
         Group,
@@ -46,7 +46,8 @@ namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
     public class RecipientType
     {
         public string Identifier;
-        RecipientIdentifierType rt;
+        RecipientClassType RecipientClass;
+        bool PresentOnDashboard;
     }
 
     [System.SerializableAttribute()]

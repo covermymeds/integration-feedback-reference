@@ -49,4 +49,5 @@ namespace CoverMyMeds.Feedback.Utility
         }
 
         #endregion
+    }
 }

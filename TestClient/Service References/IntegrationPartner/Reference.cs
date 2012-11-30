@@ -15,68 +15,6 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="CompositeType", Namespace="http://schemas.datacontract.org/2004/07/CoverMyMeds.Feedback.IntegrationPartnerEn" +
-        "dpoint")]
-    [System.SerializableAttribute()]
-    public partial class CompositeType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool BoolValueField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StringValueField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool BoolValue {
-            get {
-                return this.BoolValueField;
-            }
-            set {
-                if ((this.BoolValueField.Equals(value) != true)) {
-                    this.BoolValueField = value;
-                    this.RaisePropertyChanged("BoolValue");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string StringValue {
-            get {
-                return this.StringValueField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StringValueField, value) != true)) {
-                    this.StringValueField = value;
-                    this.RaisePropertyChanged("StringValue");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="FeedbackUpdate", Namespace="http://schemas.datacontract.org/2004/07/CoverMyMeds.Feedback.IntegrationPartnerEn" +
         "dpoint")]
     [System.SerializableAttribute()]
@@ -88,36 +26,26 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> AppealExpirationDateField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string CreatedByField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime CreationDateField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private CoverMyMeds.Feedback.TestClient.IntegrationPartner.DispositionType DispositionField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FormNameField;
         
         private string IdField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private CoverMyMeds.Feedback.TestClient.IntegrationPartner.RxChangeRequest PARequestDataField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private CoverMyMeds.Feedback.TestClient.IntegrationPartner.PlanOutcomeType PlanOutcomeField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private CoverMyMeds.Feedback.TestClient.IntegrationPartner.RecipientType[] RecipientsField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private CoverMyMeds.Feedback.TestClient.IntegrationPartner.RequestSourceType RequestSourceField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ReturnURLField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime UpdateDateField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -143,7 +71,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string CreatedBy {
             get {
                 return this.CreatedByField;
@@ -156,7 +84,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.DateTime CreationDate {
             get {
                 return this.CreationDateField;
@@ -169,7 +97,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public CoverMyMeds.Feedback.TestClient.IntegrationPartner.DispositionType Disposition {
             get {
                 return this.DispositionField;
@@ -182,7 +110,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string FormName {
             get {
                 return this.FormNameField;
@@ -195,7 +123,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, EmitDefaultValue=false)]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string Id {
             get {
                 return this.IdField;
@@ -208,7 +136,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public CoverMyMeds.Feedback.TestClient.IntegrationPartner.RxChangeRequest PARequestData {
             get {
                 return this.PARequestDataField;
@@ -221,7 +149,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public CoverMyMeds.Feedback.TestClient.IntegrationPartner.PlanOutcomeType PlanOutcome {
             get {
                 return this.PlanOutcomeField;
@@ -234,7 +162,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public CoverMyMeds.Feedback.TestClient.IntegrationPartner.RecipientType[] Recipients {
             get {
                 return this.RecipientsField;
@@ -247,7 +175,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public CoverMyMeds.Feedback.TestClient.IntegrationPartner.RequestSourceType RequestSource {
             get {
                 return this.RequestSourceField;
@@ -260,7 +188,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public string ReturnURL {
             get {
                 return this.ReturnURLField;
@@ -273,7 +201,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public System.DateTime UpdateDate {
             get {
                 return this.UpdateDateField;
@@ -544,7 +472,9 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
         
         private string IdentifierField;
         
-        private CoverMyMeds.Feedback.TestClient.IntegrationPartner.RecipientIdentifierType rtField;
+        private bool PresentOnDashboardField;
+        
+        private CoverMyMeds.Feedback.TestClient.IntegrationPartner.RecipientClassType RecipientClassField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -570,14 +500,27 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public CoverMyMeds.Feedback.TestClient.IntegrationPartner.RecipientIdentifierType rt {
+        public bool PresentOnDashboard {
             get {
-                return this.rtField;
+                return this.PresentOnDashboardField;
             }
             set {
-                if ((this.rtField.Equals(value) != true)) {
-                    this.rtField = value;
-                    this.RaisePropertyChanged("rt");
+                if ((this.PresentOnDashboardField.Equals(value) != true)) {
+                    this.PresentOnDashboardField = value;
+                    this.RaisePropertyChanged("PresentOnDashboard");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
+        public CoverMyMeds.Feedback.TestClient.IntegrationPartner.RecipientClassType RecipientClass {
+            get {
+                return this.RecipientClassField;
+            }
+            set {
+                if ((this.RecipientClassField.Equals(value) != true)) {
+                    this.RecipientClassField = value;
+                    this.RaisePropertyChanged("RecipientClass");
                 }
             }
         }
@@ -6112,9 +6055,9 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="RecipientIdentifierType", Namespace="http://schemas.datacontract.org/2004/07/CoverMyMeds.Feedback.IntegrationPartnerEn" +
+    [System.Runtime.Serialization.DataContractAttribute(Name="RecipientClassType", Namespace="http://schemas.datacontract.org/2004/07/CoverMyMeds.Feedback.IntegrationPartnerEn" +
         "dpoint")]
-    public enum RecipientIdentifierType : int {
+    public enum RecipientClassType : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
         User = 0,
@@ -6129,12 +6072,6 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="IntegrationPartner.IFeedbackService")]
     public interface IFeedbackService {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFeedbackService/GetData", ReplyAction="http://tempuri.org/IFeedbackService/GetDataResponse")]
-        string GetData(int value);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFeedbackService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IFeedbackService/GetDataUsingDataContractResponse")]
-        CoverMyMeds.Feedback.TestClient.IntegrationPartner.CompositeType GetDataUsingDataContract(CoverMyMeds.Feedback.TestClient.IntegrationPartner.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFeedbackService/UpdatePriorAuthorizationRequest", ReplyAction="http://tempuri.org/IFeedbackService/UpdatePriorAuthorizationRequestResponse")]
         void UpdatePriorAuthorizationRequest(CoverMyMeds.Feedback.TestClient.IntegrationPartner.FeedbackUpdate FeedbackData);
@@ -6165,14 +6102,6 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
         
         public FeedbackServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public string GetData(int value) {
-            return base.Channel.GetData(value);
-        }
-        
-        public CoverMyMeds.Feedback.TestClient.IntegrationPartner.CompositeType GetDataUsingDataContract(CoverMyMeds.Feedback.TestClient.IntegrationPartner.CompositeType composite) {
-            return base.Channel.GetDataUsingDataContract(composite);
         }
         
         public void UpdatePriorAuthorizationRequest(CoverMyMeds.Feedback.TestClient.IntegrationPartner.FeedbackUpdate FeedbackData) {
