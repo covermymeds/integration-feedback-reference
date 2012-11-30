@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
-namespace IntegrationPartnerEndpoint
+namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
     public class FeedbackEndpoint : IFeedbackService
@@ -29,9 +29,12 @@ namespace IntegrationPartnerEndpoint
             return composite;
         }
 
-        public void UpdatePriorAuthorizationRequest(NCPDP.org.schema.SCRIPT.RxChangeResponse rxChangeResponse)
+        public void UpdatePriorAuthorizationRequest(FeedbackUpdate FeedbackData)
         {
-            //rxChangeResponse.MedicationPrescribed.
+            if (FeedbackData == null)
+            {
+                throw new ArgumentNullException("FeedbackData");
+            }
             throw new NotImplementedException();
         }
     }

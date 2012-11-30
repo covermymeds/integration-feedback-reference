@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/NCPDP.org.schema.SCRIPT" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/NCPDP.org.schema.SCRIPT" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:19076/IFeedbackEndpoint.svc?xsd=xsd4" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="RxChangeRequest">
+    <xs:sequence>
+      <xs:element name="benefitsCoordinationField" nillable="true" type="tns:ArrayOfBenefitsCoordinationType" />
+      <xs:element name="facilityField" nillable="true" type="tns:MandatoryFaciltyType" />
+      <xs:element name="medicationPrescribedField" nillable="true" type="tns:RxChangePrescribedMedicationType" />
+      <xs:element name="medicationRequestedField" nillable="true" type="tns:ArrayOfRxChangeDispensedMedicationType" />
+      <xs:element name="observationField" nillable="true" type="tns:ObservationType" />
+      <xs:element name="patientField" nillable="true" type="tns:PatientType" />
+      <xs:element name="pharmacyField" nillable="true" type="tns:MandatoryPharmacyType" />
+      <xs:element name="prescriberField" nillable="true" type="tns:PrescriberType" />
+      <xs:element name="requestField" nillable="true" type="tns:RequestType" />
+      <xs:element name="supervisorField" nillable="true" type="tns:SupervisorType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RxChangeRequest" nillable="true" type="tns:RxChangeRequest" />
+  <xs:complexType name="ArrayOfBenefitsCoordinationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="BenefitsCoordinationType" nillable="true" type="tns:BenefitsCoordinationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfBenefitsCoordinationType" nillable="true" type="tns:ArrayOfBenefitsCoordinationType" />
+  <xs:complexType name="BenefitsCoordinationType">
+    <xs:sequence>
+      <xs:element name="cardHolderNameField" nillable="true" type="tns:NameType" />
+      <xs:element name="cardholderIDField" nillable="true" type="xs:string" />
+      <xs:element name="groupIDField" nillable="true" type="xs:string" />
+      <xs:element name="payerIdentificationField" nillable="true" type="tns:ArrayOfPayerIDType" />
+      <xs:element name="payerNameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BenefitsCoordinationType" nillable="true" type="tns:BenefitsCoordinationType" />
+  <xs:complexType name="NameType">
+    <xs:sequence>
+      <xs:element name="firstNameField" nillable="true" type="xs:string" />
+      <xs:element name="lastNameField" nillable="true" type="xs:string" />
+      <xs:element name="middleNameField" nillable="true" type="xs:string" />
+      <xs:element name="prefixField" nillable="true" type="xs:string" />
+      <xs:element name="suffixField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="NameType" nillable="true" type="tns:NameType" />
+  <xs:complexType name="ArrayOfPayerIDType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PayerIDType" nillable="true" type="tns:PayerIDType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPayerIDType" nillable="true" type="tns:ArrayOfPayerIDType" />
+  <xs:complexType name="PayerIDType">
+    <xs:sequence>
+      <xs:element name="itemElementNameField" type="tns:ItemChoiceType1" />
+      <xs:element name="itemField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PayerIDType" nillable="true" type="tns:PayerIDType" />
+  <xs:simpleType name="ItemChoiceType1">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BINLocationNumber" />
+      <xs:enumeration value="Commercial" />
+      <xs:enumeration value="DEANumber" />
+      <xs:enumeration value="DentistLicenseNumber" />
+      <xs:enumeration value="FacilityID" />
+      <xs:enumeration value="FileID" />
+      <xs:enumeration value="HIN" />
+      <xs:enumeration value="IndividualPolicyNumber" />
+      <xs:enumeration value="MedicaidNumber" />
+      <xs:enumeration value="MedicalRecordIdentificationNumberEHR" />
+      <xs:enumeration value="MedicareNumber" />
+      <xs:enumeration value="MutuallyDefined" />
+      <xs:enumeration value="NAICCode" />
+      <xs:enumeration value="NCPDPID" />
+      <xs:enumeration value="NPI" />
+      <xs:enumeration value="PPONumber" />
+      <xs:enumeration value="PatientAccountNumber" />
+      <xs:enumeration value="PayerID" />
+      <xs:enumeration value="PriorAuthorization" />
+      <xs:enumeration value="ProcessorIdentificationNumber" />
+      <xs:enumeration value="PromotionNumber" />
+      <xs:enumeration value="SecondaryCoverage" />
+      <xs:enumeration value="SocialSecurity" />
+      <xs:enumeration value="StateLicenseNumber" />
+      <xs:enumeration value="UPIN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemChoiceType1" nillable="true" type="tns:ItemChoiceType1" />
+  <xs:complexType name="MandatoryFaciltyType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="communicationNumbersField" nillable="true" type="tns:ArrayOfCommunicationType" />
+      <xs:element name="facilityNameField" nillable="true" type="xs:string" />
+      <xs:element name="identificationField" nillable="true" type="tns:MandatoryProviderIDType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MandatoryFaciltyType" nillable="true" type="tns:MandatoryFaciltyType" />
+  <xs:complexType name="AddressType">
+    <xs:sequence>
+      <xs:element name="addressLine1Field" nillable="true" type="xs:string" />
+      <xs:element name="addressLine2Field" nillable="true" type="xs:string" />
+      <xs:element name="cityField" nillable="true" type="xs:string" />
+      <xs:element name="placeLocationQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="stateField" nillable="true" type="xs:string" />
+      <xs:element name="zipCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AddressType" nillable="true" type="tns:AddressType" />
+  <xs:complexType name="ArrayOfCommunicationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CommunicationType" nillable="true" type="tns:CommunicationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCommunicationType" nillable="true" type="tns:ArrayOfCommunicationType" />
+  <xs:complexType name="CommunicationType">
+    <xs:sequence>
+      <xs:element name="numberField" nillable="true" type="xs:string" />
+      <xs:element name="qualifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommunicationType" nillable="true" type="tns:CommunicationType" />
+  <xs:complexType name="MandatoryProviderIDType">
+    <xs:sequence>
+      <xs:element name="itemsElementNameField" nillable="true" type="tns:ArrayOfItemsChoiceType" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="itemsField" nillable="true" type="q1:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MandatoryProviderIDType" nillable="true" type="tns:MandatoryProviderIDType" />
+  <xs:complexType name="ArrayOfItemsChoiceType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemsChoiceType" type="tns:ItemsChoiceType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemsChoiceType" nillable="true" type="tns:ArrayOfItemsChoiceType" />
+  <xs:simpleType name="ItemsChoiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BINLocationNumber" />
+      <xs:enumeration value="Commercial" />
+      <xs:enumeration value="DEANumber" />
+      <xs:enumeration value="DentistLicenseNumber" />
+      <xs:enumeration value="FacilityID" />
+      <xs:enumeration value="FileID" />
+      <xs:enumeration value="HIN" />
+      <xs:enumeration value="IndividualPolicyNumber" />
+      <xs:enumeration value="MedicaidNumber" />
+      <xs:enumeration value="MedicalRecordIdentificationNumberEHR" />
+      <xs:enumeration value="MedicareNumber" />
+      <xs:enumeration value="MutuallyDefined" />
+      <xs:enumeration value="NAICCode" />
+      <xs:enumeration value="NCPDPID" />
+      <xs:enumeration value="NPI" />
+      <xs:enumeration value="PPONumber" />
+      <xs:enumeration value="PatientAccountNumber" />
+      <xs:enumeration value="PayerID" />
+      <xs:enumeration value="PriorAuthorization" />
+      <xs:enumeration value="ProcessorIdentificationNumber" />
+      <xs:enumeration value="PromotionNumber" />
+      <xs:enumeration value="SecondaryCoverage" />
+      <xs:enumeration value="SocialSecurity" />
+      <xs:enumeration value="StateLicenseNumber" />
+      <xs:enumeration value="UPIN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemsChoiceType" nillable="true" type="tns:ItemsChoiceType" />
+  <xs:complexType name="RxChangePrescribedMedicationType">
+    <xs:sequence>
+      <xs:element name="dateValidatedField" nillable="true" type="tns:DateType" />
+      <xs:element name="daysSupplyField" nillable="true" type="xs:string" />
+      <xs:element name="deliveredOnDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="diagnosisField" nillable="true" type="tns:ArrayOfDiagnosis" />
+      <xs:element name="directionsField" nillable="true" type="xs:string" />
+      <xs:element name="drugCodedField" nillable="true" type="tns:DrugCodedType" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="drugCoverageStatusCodeField" nillable="true" type="q2:ArrayOfstring" />
+      <xs:element name="drugDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="drugUseEvaluationField" nillable="true" type="tns:ArrayOfDrugUseEvaluationType" />
+      <xs:element name="effectiveDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="expirationDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="lastFillDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="noteField" nillable="true" type="xs:string" />
+      <xs:element name="periodEndField" nillable="true" type="tns:DateType" />
+      <xs:element name="priorAuthorizationField" nillable="true" type="tns:PriorAuthorizationType" />
+      <xs:element name="priorAuthorizationStatusField" nillable="true" type="xs:string" />
+      <xs:element name="quantityField" nillable="true" type="tns:ArrayOfQuantityType" />
+      <xs:element name="refillsField" nillable="true" type="tns:ArrayOfRxChangePrescribedMedicationTypeRefills" />
+      <xs:element name="structuredSIGField" nillable="true" type="tns:ArrayOfSIGType" />
+      <xs:element name="substitutionsField" nillable="true" type="xs:string" />
+      <xs:element name="writtenDateField" nillable="true" type="tns:DateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RxChangePrescribedMedicationType" nillable="true" type="tns:RxChangePrescribedMedicationType" />
+  <xs:complexType name="DateType">
+    <xs:sequence>
+      <xs:element name="itemElementNameField" type="tns:ItemChoiceType" />
+      <xs:element name="itemField" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DateType" nillable="true" type="tns:DateType" />
+  <xs:simpleType name="ItemChoiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Date" />
+      <xs:enumeration value="DateTime" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemChoiceType" nillable="true" type="tns:ItemChoiceType" />
+  <xs:complexType name="ArrayOfDiagnosis">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Diagnosis" nillable="true" type="tns:Diagnosis" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDiagnosis" nillable="true" type="tns:ArrayOfDiagnosis" />
+  <xs:complexType name="Diagnosis">
+    <xs:sequence>
+      <xs:element name="clinicalInformationQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="primaryField" nillable="true" type="tns:PrimaryDiagnosisType" />
+      <xs:element name="secondaryField" nillable="true" type="tns:DiagnosisType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Diagnosis" nillable="true" type="tns:Diagnosis" />
+  <xs:complexType name="PrimaryDiagnosisType">
+    <xs:sequence>
+      <xs:element name="qualifierField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrimaryDiagnosisType" nillable="true" type="tns:PrimaryDiagnosisType" />
+  <xs:complexType name="DiagnosisType">
+    <xs:sequence>
+      <xs:element name="qualifierField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DiagnosisType" nillable="true" type="tns:DiagnosisType" />
+  <xs:complexType name="DrugCodedType">
+    <xs:sequence>
+      <xs:element name="dEAScheduleField" nillable="true" type="xs:string" />
+      <xs:element name="drugDBCodeField" nillable="true" type="xs:string" />
+      <xs:element name="drugDBCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="formCodeField" nillable="true" type="xs:string" />
+      <xs:element name="formSourceCodeField" nillable="true" type="xs:string" />
+      <xs:element name="productCodeField" nillable="true" type="xs:string" />
+      <xs:element name="productCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="strengthCodeField" nillable="true" type="xs:string" />
+      <xs:element name="strengthField" nillable="true" type="xs:string" />
+      <xs:element name="strengthSourceCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrugCodedType" nillable="true" type="tns:DrugCodedType" />
+  <xs:complexType name="ArrayOfDrugUseEvaluationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DrugUseEvaluationType" nillable="true" type="tns:DrugUseEvaluationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDrugUseEvaluationType" nillable="true" type="tns:ArrayOfDrugUseEvaluationType" />
+  <xs:complexType name="DrugUseEvaluationType">
+    <xs:sequence>
+      <xs:element name="acknowledgementReasonField" nillable="true" type="xs:string" />
+      <xs:element name="clinicalSignificanceCodeField" nillable="true" type="xs:string" />
+      <xs:element name="coAgentField" nillable="true" type="tns:CoAgentType" />
+      <xs:element name="professionalServiceCodeField" nillable="true" type="xs:string" />
+      <xs:element name="serviceReasonCodeField" nillable="true" type="xs:string" />
+      <xs:element name="serviceResultCodeField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DrugUseEvaluationType" nillable="true" type="tns:DrugUseEvaluationType" />
+  <xs:complexType name="CoAgentType">
+    <xs:sequence>
+      <xs:element name="coAgentIDField" nillable="true" type="xs:string" />
+      <xs:element name="coAgentQualifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CoAgentType" nillable="true" type="tns:CoAgentType" />
+  <xs:complexType name="PriorAuthorizationType">
+    <xs:sequence>
+      <xs:element name="qualifierField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PriorAuthorizationType" nillable="true" type="tns:PriorAuthorizationType" />
+  <xs:complexType name="ArrayOfQuantityType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="QuantityType" nillable="true" type="tns:QuantityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfQuantityType" nillable="true" type="tns:ArrayOfQuantityType" />
+  <xs:complexType name="QuantityType">
+    <xs:sequence>
+      <xs:element name="codeListQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="potencyUnitCodeField" nillable="true" type="xs:string" />
+      <xs:element name="unitSourceCodeField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="QuantityType" nillable="true" type="tns:QuantityType" />
+  <xs:complexType name="ArrayOfRxChangePrescribedMedicationTypeRefills">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RxChangePrescribedMedicationTypeRefills" nillable="true" type="tns:RxChangePrescribedMedicationTypeRefills" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRxChangePrescribedMedicationTypeRefills" nillable="true" type="tns:ArrayOfRxChangePrescribedMedicationTypeRefills" />
+  <xs:complexType name="RxChangePrescribedMedicationTypeRefills">
+    <xs:sequence>
+      <xs:element name="qualifierField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RxChangePrescribedMedicationTypeRefills" nillable="true" type="tns:RxChangePrescribedMedicationTypeRefills" />
+  <xs:complexType name="ArrayOfSIGType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SIGType" nillable="true" type="tns:SIGType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSIGType" nillable="true" type="tns:ArrayOfSIGType" />
+  <xs:complexType name="SIGType">
+    <xs:sequence>
+      <xs:element name="codeSystemField" nillable="true" type="tns:SIGTypeCodeSystem" />
+      <xs:element name="doseCalculationField" nillable="true" type="tns:SIGTypeDoseCalculation" />
+      <xs:element name="doseField" nillable="true" type="tns:SIGTypeDose" />
+      <xs:element name="durationField" nillable="true" type="tns:SIGTypeDuration" />
+      <xs:element name="freeTextField" nillable="true" type="tns:SIGTypeFreeText" />
+      <xs:element name="indicationField" nillable="true" type="tns:SIGTypeIndication" />
+      <xs:element name="maximumDoseRestrictionField" nillable="true" type="tns:SIGTypeMaximumDoseRestriction" />
+      <xs:element name="repeatingSIGField" nillable="true" type="tns:SIGTypeRepeatingSIG" />
+      <xs:element name="routeofAdministrationField" nillable="true" type="tns:SIGTypeRouteofAdministration" />
+      <xs:element name="siteofAdministrationField" nillable="true" type="tns:SIGTypeSiteofAdministration" />
+      <xs:element name="stopField" nillable="true" type="tns:SIGTypeStop" />
+      <xs:element name="timingField" nillable="true" type="tns:SIGTypeTiming" />
+      <xs:element name="vehicleField" nillable="true" type="tns:SIGTypeVehicle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGType" nillable="true" type="tns:SIGType" />
+  <xs:complexType name="SIGTypeCodeSystem">
+    <xs:sequence>
+      <xs:element name="fMTVersionField" nillable="true" type="xs:string" />
+      <xs:element name="sNOMEDVersionField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeCodeSystem" nillable="true" type="tns:SIGTypeCodeSystem" />
+  <xs:complexType name="SIGTypeDoseCalculation">
+    <xs:sequence>
+      <xs:element name="bodyMetricQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="bodyMetricValueField" nillable="true" type="xs:string" />
+      <xs:element name="calculatedDoseNumericField" nillable="true" type="xs:string" />
+      <xs:element name="calculatedDoseUnitofMeasureCodeField" nillable="true" type="xs:string" />
+      <xs:element name="calculatedDoseUnitofMeasureCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="calculatedDoseUnitofMeasureTextField" nillable="true" type="xs:string" />
+      <xs:element name="dosingBasisNumericValueField" nillable="true" type="xs:string" />
+      <xs:element name="dosingBasisRangeModifierField" nillable="true" type="xs:string" />
+      <xs:element name="dosingBasisUnitofMeasureCodeField" nillable="true" type="xs:string" />
+      <xs:element name="dosingBasisUnitofMeasureCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="dosingBasisUnitofMeasureTextField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeDoseCalculation" nillable="true" type="tns:SIGTypeDoseCalculation" />
+  <xs:complexType name="SIGTypeDose">
+    <xs:sequence>
+      <xs:element name="doseCompositeIndicatorField" nillable="true" type="xs:string" />
+      <xs:element name="doseDeliveryMethodCodeField" nillable="true" type="xs:string" />
+      <xs:element name="doseDeliveryMethodCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="doseDeliveryMethodModifierCodeField" nillable="true" type="xs:string" />
+      <xs:element name="doseDeliveryMethodModifierCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="doseDeliveryMethodModifierTextField" nillable="true" type="xs:string" />
+      <xs:element name="doseDeliveryMethodTextField" nillable="true" type="xs:string" />
+      <xs:element name="doseFormCodeField" nillable="true" type="xs:string" />
+      <xs:element name="doseFormCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="doseFormTextField" nillable="true" type="xs:string" />
+      <xs:element name="doseQuantityField" nillable="true" type="xs:string" />
+      <xs:element name="doseRangeModifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeDose" nillable="true" type="tns:SIGTypeDose" />
+  <xs:complexType name="SIGTypeDuration">
+    <xs:sequence>
+      <xs:element name="durationNumericValueField" nillable="true" type="xs:string" />
+      <xs:element name="durationTextCodeField" nillable="true" type="xs:string" />
+      <xs:element name="durationTextCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="durationTextField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeDuration" nillable="true" type="tns:SIGTypeDuration" />
+  <xs:complexType name="SIGTypeFreeText">
+    <xs:sequence>
+      <xs:element name="sigFreeTextField" nillable="true" type="xs:string" />
+      <xs:element name="sigFreeTextStringIndicatorField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeFreeText" nillable="true" type="tns:SIGTypeFreeText" />
+  <xs:complexType name="SIGTypeIndication">
+    <xs:sequence>
+      <xs:element name="indicationPrecursorCodeField" nillable="true" type="xs:string" />
+      <xs:element name="indicationPrecursorCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="indicationPrecursorTextField" nillable="true" type="xs:string" />
+      <xs:element name="indicationTextCodeField" nillable="true" type="xs:string" />
+      <xs:element name="indicationTextCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="indicationTextField" nillable="true" type="xs:string" />
+      <xs:element name="indicationValueTextField" nillable="true" type="xs:string" />
+      <xs:element name="indicationValueUnitField" nillable="true" type="xs:string" />
+      <xs:element name="indicationValueUnitofMeasureCodeField" nillable="true" type="xs:string" />
+      <xs:element name="indicationValueUnitofMeasureCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="indicationValueUnitofMeasureTextField" nillable="true" type="xs:string" />
+      <xs:element name="indicationVariableModifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeIndication" nillable="true" type="tns:SIGTypeIndication" />
+  <xs:complexType name="SIGTypeMaximumDoseRestriction">
+    <xs:sequence>
+      <xs:element name="maximumDoseRestrictionCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="maximumDoseRestrictionNumericValueField" nillable="true" type="xs:string" />
+      <xs:element name="maximumDoseRestrictionUnitsCodeField" nillable="true" type="xs:string" />
+      <xs:element name="maximumDoseRestrictionUnitsTextField" nillable="true" type="xs:string" />
+      <xs:element name="maximumDoseRestrictionVariableDurationModifierField" nillable="true" type="xs:string" />
+      <xs:element name="maximumDoseRestrictionVariableNumericValueField" nillable="true" type="xs:string" />
+      <xs:element name="maximumDoseRestrictionVariableUnitsCodeField" nillable="true" type="xs:string" />
+      <xs:element name="maximumDoseRestrictionVariableUnitsCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="maximumDoseRestrictionVariableUnitsTextField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeMaximumDoseRestriction" nillable="true" type="tns:SIGTypeMaximumDoseRestriction" />
+  <xs:complexType name="SIGTypeRepeatingSIG">
+    <xs:sequence>
+      <xs:element name="multipleSigModifierField" nillable="true" type="xs:string" />
+      <xs:element name="sigSequencePositionNumberField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeRepeatingSIG" nillable="true" type="tns:SIGTypeRepeatingSIG" />
+  <xs:complexType name="SIGTypeRouteofAdministration">
+    <xs:sequence>
+      <xs:element name="multipleRouteofAdministrationModifierField" nillable="true" type="xs:string" />
+      <xs:element name="routeofAdministrationCodeField" nillable="true" type="xs:string" />
+      <xs:element name="routeofAdministrationCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="routeofAdministrationTextField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeRouteofAdministration" nillable="true" type="tns:SIGTypeRouteofAdministration" />
+  <xs:complexType name="SIGTypeSiteofAdministration">
+    <xs:sequence>
+      <xs:element name="multipleAdministrationTimingModifierField" nillable="true" type="xs:string" />
+      <xs:element name="siteofAdministrationCodeField" nillable="true" type="xs:string" />
+      <xs:element name="siteofAdministrationCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="siteofAdministrationTextField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeSiteofAdministration" nillable="true" type="tns:SIGTypeSiteofAdministration" />
+  <xs:complexType name="SIGTypeStop">
+    <xs:sequence>
+      <xs:element name="stopIndicatorField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeStop" nillable="true" type="tns:SIGTypeStop" />
+  <xs:complexType name="SIGTypeTiming">
+    <xs:sequence>
+      <xs:element name="administrationTimingCodeField" nillable="true" type="xs:string" />
+      <xs:element name="administrationTimingCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="administrationTimingTextField" nillable="true" type="xs:string" />
+      <xs:element name="frequencyNumericValueField" nillable="true" type="xs:string" />
+      <xs:element name="frequencyUnitsCodeField" nillable="true" type="xs:string" />
+      <xs:element name="frequencyUnitsCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="frequencyUnitsTextField" nillable="true" type="xs:string" />
+      <xs:element name="intervalNumericValueField" nillable="true" type="xs:string" />
+      <xs:element name="intervalUnitsCodeField" nillable="true" type="xs:string" />
+      <xs:element name="intervalUnitsCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="intervalUnitsTextField" nillable="true" type="xs:string" />
+      <xs:element name="multipleAdministrationTimingModifierField" nillable="true" type="xs:string" />
+      <xs:element name="rateUnitofMeasureCodeField" nillable="true" type="xs:string" />
+      <xs:element name="rateUnitofMeasureCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="rateUnitofMeasureTextField" nillable="true" type="xs:string" />
+      <xs:element name="rateofAdministrationField" nillable="true" type="xs:string" />
+      <xs:element name="timePeriodBasisCodeField" nillable="true" type="xs:string" />
+      <xs:element name="timePeriodBasisCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="timePeriodBasisTextField" nillable="true" type="xs:string" />
+      <xs:element name="variableFrequencyModifierField" nillable="true" type="xs:string" />
+      <xs:element name="variableIntervalModifierField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeTiming" nillable="true" type="tns:SIGTypeTiming" />
+  <xs:complexType name="SIGTypeVehicle">
+    <xs:sequence>
+      <xs:element name="multipleVehicleModifierField" nillable="true" type="xs:string" />
+      <xs:element name="vehicleNameCodeField" nillable="true" type="xs:string" />
+      <xs:element name="vehicleNameCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="vehicleNameField" nillable="true" type="xs:string" />
+      <xs:element name="vehicleQuantityField" nillable="true" type="xs:string" />
+      <xs:element name="vehicleUnitOfMeasureCodeField" nillable="true" type="xs:string" />
+      <xs:element name="vehicleUnitOfMeasureCodeQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="vehicleUnitOfMeasureTextField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SIGTypeVehicle" nillable="true" type="tns:SIGTypeVehicle" />
+  <xs:complexType name="ArrayOfRxChangeDispensedMedicationType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RxChangeDispensedMedicationType" nillable="true" type="tns:RxChangeDispensedMedicationType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRxChangeDispensedMedicationType" nillable="true" type="tns:ArrayOfRxChangeDispensedMedicationType" />
+  <xs:complexType name="RxChangeDispensedMedicationType">
+    <xs:sequence>
+      <xs:element name="dateValidatedField" nillable="true" type="tns:DateType" />
+      <xs:element name="daysSupplyField" nillable="true" type="xs:string" />
+      <xs:element name="deliveredOnDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="diagnosisField" nillable="true" type="tns:ArrayOfDiagnosis" />
+      <xs:element name="directionsField" nillable="true" type="xs:string" />
+      <xs:element name="drugCodedField" nillable="true" type="tns:DrugCodedType" />
+      <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="drugCoverageStatusCodeField" nillable="true" type="q3:ArrayOfstring" />
+      <xs:element name="drugDescriptionField" nillable="true" type="xs:string" />
+      <xs:element name="drugUseEvaluationField" nillable="true" type="tns:ArrayOfDrugUseEvaluationType" />
+      <xs:element name="effectiveDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="expirationDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="lastFillDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="noteField" nillable="true" type="xs:string" />
+      <xs:element name="periodEndField" nillable="true" type="tns:DateType" />
+      <xs:element name="priorAuthorizationField" nillable="true" type="tns:PriorAuthorizationType" />
+      <xs:element name="priorAuthorizationStatusField" nillable="true" type="xs:string" />
+      <xs:element name="quantityField" nillable="true" type="tns:ArrayOfQuantityType" />
+      <xs:element name="refillsField" nillable="true" type="tns:ArrayOfRxChangeDispensedMedicationTypeRefills" />
+      <xs:element name="structuredSIGField" nillable="true" type="tns:ArrayOfSIGType" />
+      <xs:element name="substitutionsField" nillable="true" type="xs:string" />
+      <xs:element name="writtenDateField" nillable="true" type="tns:DateType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RxChangeDispensedMedicationType" nillable="true" type="tns:RxChangeDispensedMedicationType" />
+  <xs:complexType name="ArrayOfRxChangeDispensedMedicationTypeRefills">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RxChangeDispensedMedicationTypeRefills" nillable="true" type="tns:RxChangeDispensedMedicationTypeRefills" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRxChangeDispensedMedicationTypeRefills" nillable="true" type="tns:ArrayOfRxChangeDispensedMedicationTypeRefills" />
+  <xs:complexType name="RxChangeDispensedMedicationTypeRefills">
+    <xs:sequence>
+      <xs:element name="qualifierField" nillable="true" type="xs:string" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RxChangeDispensedMedicationTypeRefills" nillable="true" type="tns:RxChangeDispensedMedicationTypeRefills" />
+  <xs:complexType name="ObservationType">
+    <xs:sequence>
+      <xs:element name="measurementField" nillable="true" type="tns:ArrayOfMeasurementType" />
+      <xs:element name="observationNotesField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ObservationType" nillable="true" type="tns:ObservationType" />
+  <xs:complexType name="ArrayOfMeasurementType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="MeasurementType" nillable="true" type="tns:MeasurementType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfMeasurementType" nillable="true" type="tns:ArrayOfMeasurementType" />
+  <xs:complexType name="MeasurementType">
+    <xs:sequence>
+      <xs:element name="dimensionField" nillable="true" type="xs:string" />
+      <xs:element name="measurementDataQualifierField" nillable="true" type="xs:string" />
+      <xs:element name="measurementSourceCodeField" nillable="true" type="xs:string" />
+      <xs:element name="measurementUnitCodeField" nillable="true" type="xs:string" />
+      <xs:element name="observationDateField" nillable="true" type="tns:DateType" />
+      <xs:element name="valueField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MeasurementType" nillable="true" type="tns:MeasurementType" />
+  <xs:complexType name="PatientType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="communicationNumbersField" nillable="true" type="tns:ArrayOfCommunicationType" />
+      <xs:element name="dateOfBirthField" nillable="true" type="tns:DateType" />
+      <xs:element name="genderField" nillable="true" type="xs:string" />
+      <xs:element name="identificationField" nillable="true" type="tns:PatientIDType" />
+      <xs:element name="nameField" nillable="true" type="tns:MandatoryPatientNameType" />
+      <xs:element name="patientLocationField" nillable="true" type="tns:PatientLocation" />
+      <xs:element name="patientRelationshipField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientType" nillable="true" type="tns:PatientType" />
+  <xs:complexType name="PatientIDType">
+    <xs:sequence>
+      <xs:element name="itemsElementNameField" nillable="true" type="tns:ArrayOfItemsChoiceType1" />
+      <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" name="itemsField" nillable="true" type="q4:ArrayOfstring" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientIDType" nillable="true" type="tns:PatientIDType" />
+  <xs:complexType name="ArrayOfItemsChoiceType1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemsChoiceType1" type="tns:ItemsChoiceType1" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemsChoiceType1" nillable="true" type="tns:ArrayOfItemsChoiceType1" />
+  <xs:simpleType name="ItemsChoiceType1">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="BINLocationNumber" />
+      <xs:enumeration value="Commercial" />
+      <xs:enumeration value="DEANumber" />
+      <xs:enumeration value="DentistLicenseNumber" />
+      <xs:enumeration value="FacilityID" />
+      <xs:enumeration value="FileID" />
+      <xs:enumeration value="HIN" />
+      <xs:enumeration value="IndividualPolicyNumber" />
+      <xs:enumeration value="MedicaidNumber" />
+      <xs:enumeration value="MedicalRecordIdentificationNumberEHR" />
+      <xs:enumeration value="MedicareNumber" />
+      <xs:enumeration value="MutuallyDefined" />
+      <xs:enumeration value="NAICCode" />
+      <xs:enumeration value="NCPDPID" />
+      <xs:enumeration value="NPI" />
+      <xs:enumeration value="PPONumber" />
+      <xs:enumeration value="PatientAccountNumber" />
+      <xs:enumeration value="PayerID" />
+      <xs:enumeration value="PriorAuthorization" />
+      <xs:enumeration value="ProcessorIdentificationNumber" />
+      <xs:enumeration value="PromotionNumber" />
+      <xs:enumeration value="SecondaryCoverage" />
+      <xs:enumeration value="SocialSecurity" />
+      <xs:enumeration value="StateLicenseNumber" />
+      <xs:enumeration value="UPIN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ItemsChoiceType1" nillable="true" type="tns:ItemsChoiceType1" />
+  <xs:complexType name="MandatoryPatientNameType">
+    <xs:sequence>
+      <xs:element name="firstNameField" nillable="true" type="xs:string" />
+      <xs:element name="lastNameField" nillable="true" type="xs:string" />
+      <xs:element name="middleNameField" nillable="true" type="xs:string" />
+      <xs:element name="prefixField" nillable="true" type="xs:string" />
+      <xs:element name="suffixField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MandatoryPatientNameType" nillable="true" type="tns:MandatoryPatientNameType" />
+  <xs:complexType name="PatientLocation">
+    <xs:sequence>
+      <xs:element name="bedField" nillable="true" type="xs:string" />
+      <xs:element name="facilityUnitField" nillable="true" type="xs:string" />
+      <xs:element name="roomField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PatientLocation" nillable="true" type="tns:PatientLocation" />
+  <xs:complexType name="MandatoryPharmacyType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="communicationNumbersField" nillable="true" type="tns:ArrayOfCommunicationType" />
+      <xs:element name="identificationField" nillable="true" type="tns:MandatoryProviderIDType" />
+      <xs:element name="pharmacistField" nillable="true" type="tns:NameType" />
+      <xs:element name="specialtyField" nillable="true" type="xs:string" />
+      <xs:element name="storeNameField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MandatoryPharmacyType" nillable="true" type="tns:MandatoryPharmacyType" />
+  <xs:complexType name="PrescriberType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="clinicNameField" nillable="true" type="xs:string" />
+      <xs:element name="communicationNumbersField" nillable="true" type="tns:ArrayOfCommunicationType" />
+      <xs:element name="identificationField" nillable="true" type="tns:MandatoryProviderIDType" />
+      <xs:element name="nameField" nillable="true" type="tns:MandatoryNameType" />
+      <xs:element name="prescriberAgentField" nillable="true" type="tns:NameType" />
+      <xs:element name="specialtyField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PrescriberType" nillable="true" type="tns:PrescriberType" />
+  <xs:complexType name="MandatoryNameType">
+    <xs:sequence>
+      <xs:element name="firstNameField" nillable="true" type="xs:string" />
+      <xs:element name="lastNameField" nillable="true" type="xs:string" />
+      <xs:element name="middleNameField" nillable="true" type="xs:string" />
+      <xs:element name="prefixField" nillable="true" type="xs:string" />
+      <xs:element name="suffixField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MandatoryNameType" nillable="true" type="tns:MandatoryNameType" />
+  <xs:complexType name="RequestType">
+    <xs:sequence>
+      <xs:element name="changeRequestTypeField" nillable="true" type="xs:string" />
+      <xs:element name="requestReferenceNumberField" nillable="true" type="xs:string" />
+      <xs:element name="returnReceiptField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RequestType" nillable="true" type="tns:RequestType" />
+  <xs:complexType name="SupervisorType">
+    <xs:sequence>
+      <xs:element name="addressField" nillable="true" type="tns:AddressType" />
+      <xs:element name="clinicNameField" nillable="true" type="xs:string" />
+      <xs:element name="communicationNumbersField" nillable="true" type="tns:ArrayOfCommunicationType" />
+      <xs:element name="identificationField" nillable="true" type="tns:MandatoryProviderIDType" />
+      <xs:element name="nameField" nillable="true" type="tns:MandatoryNameType" />
+      <xs:element name="specialtyField" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SupervisorType" nillable="true" type="tns:SupervisorType" />
+</xs:schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="55335e9d-c863-4734-9837-57bd4af5a07f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:19076/IFeedbackEndpoint.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IFeedbackEndpoint.xsd" MetadataType="Schema" ID="f957cd7a-40c8-4bd9-86b8-13d5135f94f5" SourceId="1" SourceUrl="http://localhost:19076/IFeedbackEndpoint.svc?xsd=xsd3" />
+    <MetadataFile FileName="IFeedbackEndpoint1.xsd" MetadataType="Schema" ID="cc977c4e-ce96-4eb7-a174-3e2c63e96941" SourceId="1" SourceUrl="http://localhost:19076/IFeedbackEndpoint.svc?xsd=xsd0" />
+    <MetadataFile FileName="IFeedbackEndpoint2.xsd" MetadataType="Schema" ID="afcb1d83-8380-43f8-8cb8-140853ec1355" SourceId="1" SourceUrl="http://localhost:19076/IFeedbackEndpoint.svc?xsd=xsd1" />
+    <MetadataFile FileName="IFeedbackEndpoint3.xsd" MetadataType="Schema" ID="2dc3dcdb-5cc3-41ff-81c7-87441b1f26b0" SourceId="1" SourceUrl="http://localhost:19076/IFeedbackEndpoint.svc?xsd=xsd2" />
+    <MetadataFile FileName="IFeedbackEndpoint.disco" MetadataType="Disco" ID="3f4c82ce-8bc3-4bea-a3d2-4ff93af44c13" SourceId="1" SourceUrl="http://localhost:19076/IFeedbackEndpoint.svc?disco" />
+    <MetadataFile FileName="IFeedbackEndpoint4.xsd" MetadataType="Schema" ID="1f5dda14-3db2-4af8-a56f-d9b0202ef232" SourceId="1" SourceUrl="http://localhost:19076/IFeedbackEndpoint.svc?xsd=xsd4" />
+    <MetadataFile FileName="FeedbackEndpoint.wsdl" MetadataType="Wsdl" ID="b550591a-7e64-4a95-ac11-065e40c78136" SourceId="1" SourceUrl="http://localhost:19076/IFeedbackEndpoint.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

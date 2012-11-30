@@ -14,7 +14,7 @@ namespace Script106
             NCPDP.org.schema.SCRIPT.HeaderType ht = new NCPDP.org.schema.SCRIPT.HeaderType();
             
             NCPDP.org.schema.SCRIPT.HeaderTypeTO to = new NCPDP.org.schema.SCRIPT.HeaderTypeTO();
-            
+        
         }
     }
 }

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/CoverMyMeds.Feedback.IntegrationPartnerEndpoint" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/CoverMyMeds.Feedback.IntegrationPartnerEndpoint" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:19076/IFeedbackEndpoint.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/NCPDP.org.schema.SCRIPT" />
+  <xs:complexType name="CompositeType">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:complexType name="FeedbackUpdate">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AppealExpirationDate" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="CreatedBy" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CreationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Disposition" type="tns:DispositionType" />
+      <xs:element minOccurs="0" name="FormName" nillable="true" type="xs:string" />
+      <xs:element name="Id" nillable="true" type="xs:string">
+        <xs:annotation>
+          <xs:appinfo>
+            <DefaultValue EmitDefaultValue="false" xmlns="http://schemas.microsoft.com/2003/10/Serialization/" />
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/NCPDP.org.schema.SCRIPT" minOccurs="0" name="PARequestData" nillable="true" type="q1:RxChangeRequest" />
+      <xs:element minOccurs="0" name="PlanOutcome" type="tns:PlanOutcomeType" />
+      <xs:element minOccurs="0" name="Recipients" nillable="true" type="tns:ArrayOfRecipientType" />
+      <xs:element minOccurs="0" name="RequestSource" type="tns:RequestSourceType" />
+      <xs:element minOccurs="0" name="ReturnURL" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateDate" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FeedbackUpdate" nillable="true" type="tns:FeedbackUpdate" />
+  <xs:simpleType name="DispositionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="New" />
+      <xs:enumeration value="SentToPlan" />
+      <xs:enumeration value="ResponseFromPlan" />
+      <xs:enumeration value="AppealedToPlan" />
+      <xs:enumeration value="Failure" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="Expired" />
+      <xs:enumeration value="Deleted" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="DispositionType" nillable="true" type="tns:DispositionType" />
+  <xs:simpleType name="PlanOutcomeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Approved" />
+      <xs:enumeration value="Denied" />
+      <xs:enumeration value="Cancelled" />
+      <xs:enumeration value="Pending" />
+      <xs:enumeration value="Unsent" />
+      <xs:enumeration value="Unknown" />
+      <xs:enumeration value="NotApplicable" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="PlanOutcomeType" nillable="true" type="tns:PlanOutcomeType" />
+  <xs:complexType name="ArrayOfRecipientType">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RecipientType" nillable="true" type="tns:RecipientType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRecipientType" nillable="true" type="tns:ArrayOfRecipientType" />
+  <xs:complexType name="RecipientType">
+    <xs:sequence>
+      <xs:element name="Identifier" nillable="true" type="xs:string" />
+      <xs:element name="rt" type="tns:RecipientIdentifierType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="RecipientType" nillable="true" type="tns:RecipientType" />
+  <xs:simpleType name="RecipientIdentifierType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="User" />
+      <xs:enumeration value="Group" />
+      <xs:enumeration value="Workqueue" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RecipientIdentifierType" nillable="true" type="tns:RecipientIdentifierType" />
+  <xs:simpleType name="RequestSourceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Prescriber" />
+      <xs:enumeration value="Pharmacy" />
+      <xs:enumeration value="ElectronicPrescribing" />
+      <xs:enumeration value="RejectedPharmacyClaim" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="RequestSourceType" nillable="true" type="tns:RequestSourceType" />
+</xs:schema>

@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="IntegrationPartnerEndpoint.FeedbackEndpoint" CodeBehind="IFeedbackEndpoint.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="CoverMyMeds.Feedback.IntegrationPartnerEndpoint.FeedbackEndpoint" CodeBehind="IFeedbackEndpoint.svc.cs" %>
