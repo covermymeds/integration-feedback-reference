@@ -16,7 +16,8 @@ namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
             {
                 throw new ArgumentNullException("FeedbackData");
             }
-            throw new NotImplementedException();
+            Console.WriteLine(FeedbackData.Id);
+            //throw new NotImplementedException();
         }
     }
 }

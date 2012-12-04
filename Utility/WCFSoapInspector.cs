@@ -47,7 +47,10 @@ namespace CoverMyMeds.Feedback.Utility
         public void Validate(ServiceEndpoint endpoint)
         {
         }
+        //public object AfterReceiveRequest(ref Message request, IClientChannel channel, InstanceContext instanceContext)
+        //{
 
+        //}
         #endregion
     }
 }
