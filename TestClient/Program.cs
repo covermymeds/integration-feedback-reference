@@ -27,6 +27,7 @@ namespace CoverMyMeds.Feedback.TestClient
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
                 //throw;
             }
             Console.WriteLine("Test Complete");
@@ -58,26 +59,26 @@ namespace CoverMyMeds.Feedback.TestClient
             List<IntegrationPartner.RecipientType> lsRet = new List<IntegrationPartner.RecipientType>();
 
             // User with active access to the PA request
-            IntegrationPartner.RecipientType NormalUser = new IntegrationPartner.RecipientType()
+            lsRet.Add(new IntegrationPartner.RecipientType()
             {
                 Identifier = "UserXYZ123",
                 RecipientClass = IntegrationPartner.RecipientClassType.User,
                 PresentOnDashboard = true
-            };
+            });
             // A group that a user with membership in will have access to a PA request
-            IntegrationPartner.RecipientType GroupRecipient = new IntegrationPartner.RecipientType()
+            lsRet.Add(new IntegrationPartner.RecipientType()
             {
                 Identifier = "GroupID456",
                 RecipientClass = IntegrationPartner.RecipientClassType.Group,
                 PresentOnDashboard = true
-            };
+            });
             // A user who no longer wishes to see or be alerted about the PA. Archived request
-            IntegrationPartner.RecipientType PastUser = new IntegrationPartner.RecipientType()
+            lsRet.Add(new IntegrationPartner.RecipientType()
             {
                 Identifier = "UserXYZ123",
                 RecipientClass = IntegrationPartner.RecipientClassType.User,
                 PresentOnDashboard = false
-            };
+            });
             return lsRet.ToArray();
         }
 
@@ -86,6 +87,9 @@ namespace CoverMyMeds.Feedback.TestClient
             IntegrationPartner.RxChangeRequest rxRet = new IntegrationPartner.RxChangeRequest();
             rxRet.patientField = GetSamplePatientData();
             rxRet.prescriberField = GetSamplePrescriberData();
+            rxRet.pharmacyField = GetSamplePharmacyData();
+            rxRet.medicationPrescribedField = GetSampleMedicationData();
+
             return rxRet;
         }
 
@@ -152,7 +156,7 @@ namespace CoverMyMeds.Feedback.TestClient
 
         private static IntegrationPartner.PrescriberType GetSamplePrescriberData()
         {
-            IntegrationPartner.PrescriberType pt = new IntegrationPartner.PrescriberType();
+            IntegrationPartner.PrescriberType PrescriberData = new IntegrationPartner.PrescriberType();
 
             // Prescriber Identifiers, an NPI and a DEA number here
             IntegrationPartner.MandatoryProviderIDType PrescriberIdentifiers = new IntegrationPartner.MandatoryProviderIDType();
@@ -162,9 +166,9 @@ namespace CoverMyMeds.Feedback.TestClient
             PrescriberIdentifiers.itemsField[0] = "1212121212";
             PrescriberIdentifiers.itemsElementNameField[1] = IntegrationPartner.ItemsChoiceType.DEANumber;
             PrescriberIdentifiers.itemsField[1] = "35123456";
-            pt.identificationField = PrescriberIdentifiers;
+            PrescriberData.identificationField = PrescriberIdentifiers;
 
-            pt.nameField = new IntegrationPartner.MandatoryNameType()
+            PrescriberData.nameField = new IntegrationPartner.MandatoryNameType()
             {
                 firstNameField = "John",
                 middleNameField = "H",
@@ -185,9 +189,9 @@ namespace CoverMyMeds.Feedback.TestClient
                 qualifierField = "WP",
                 numberField = "9875554321"
             });
-            pt.communicationNumbersField = PrescriberContactNumbers.ToArray();
+            PrescriberData.communicationNumbersField = PrescriberContactNumbers.ToArray();
 
-            pt.addressField = new IntegrationPartner.AddressType()
+            PrescriberData.addressField = new IntegrationPartner.AddressType()
             {
                 addressLine1Field = "123 Main St.",
                 cityField = "Springfield",
@@ -195,8 +199,95 @@ namespace CoverMyMeds.Feedback.TestClient
                 zipCodeField = "97477"
             };
 
-            pt.specialtyField = "2085R0001X";
-            return pt;
+            PrescriberData.specialtyField = "2085R0001X";
+            return PrescriberData;
+        }
+
+        private static IntegrationPartner.MandatoryPharmacyType GetSamplePharmacyData()
+        {
+            IntegrationPartner.MandatoryPharmacyType PharmacyData = new IntegrationPartner.MandatoryPharmacyType();
+
+            PharmacyData.storeNameField = "TestRx";
+
+            List<IntegrationPartner.CommunicationType> PharmacyNumbers = new List<IntegrationPartner.CommunicationType>();
+            PharmacyNumbers.Add(new IntegrationPartner.CommunicationType()
+            {
+                qualifierField = "FX",
+                numberField = "3215556789"
+            });
+            PharmacyData.communicationNumbersField = PharmacyNumbers.ToArray();
+
+            IntegrationPartner.MandatoryProviderIDType PharmacyIdentifiers = new IntegrationPartner.MandatoryProviderIDType();
+            PharmacyIdentifiers.itemsElementNameField = new IntegrationPartner.ItemsChoiceType[2];
+            PharmacyIdentifiers.itemsField = new string[2];
+            PharmacyIdentifiers.itemsElementNameField[0] = IntegrationPartner.ItemsChoiceType.NCPDPID;
+            PharmacyIdentifiers.itemsField[0] = "1234567";
+            PharmacyIdentifiers.itemsElementNameField[1] = IntegrationPartner.ItemsChoiceType.NPI;
+            PharmacyIdentifiers.itemsField[1] = "312345677";
+            PharmacyData.identificationField = PharmacyIdentifiers;
+
+            PharmacyData.addressField = new IntegrationPartner.AddressType()
+            {
+                addressLine1Field = "321 Bart Ave.",
+                addressLine2Field = "Suite 145",
+                cityField = "Springfield",
+                stateField = "OR",
+                zipCodeField = "97477"
+            };
+
+            PharmacyData.pharmacistField = new IntegrationPartner.NameType()
+            {
+                firstNameField = "John",
+                lastNameField = "Matrix",
+                suffixField = "DP"
+            };
+
+            return PharmacyData;
+        }
+
+        private static IntegrationPartner.RxChangePrescribedMedicationType GetSampleMedicationData()
+        {
+            //DRU+P:TEMAZEPAM 15MG::::3Ø:::::::AA:C25158:AB:C28253+::3Ø:38:AC:C4848Ø+:TAKE ONE CAPSULE AT BEDTIME AS
+            //NEEDED FOR SLEEP+85:2ØØ41ØØ1:1Ø2*ZDS:3Ø:8Ø4++R:Ø+++PATIENT'S INSURANCE
+            //REQUIRES A PRIOR AUTHORIZATION'
+            IntegrationPartner.RxChangePrescribedMedicationType MedicationData = new IntegrationPartner.RxChangePrescribedMedicationType();
+
+            MedicationData.drugDescriptionField = "TEMAZEPAM 15MG";
+            MedicationData.drugCodedField = new IntegrationPartner.DrugCodedType()
+            {
+                strengthField = "30",
+                formSourceCodeField = "AA",
+                formCodeField = "C25158",
+                strengthSourceCodeField = "AB",
+                strengthCodeField = "C28253"
+            };
+            MedicationData.quantityField = new IntegrationPartner.QuantityType[1];
+            MedicationData.quantityField[0] = new IntegrationPartner.QuantityType()
+            {
+                valueField = "30",
+                codeListQualifierField = "38",
+                unitSourceCodeField = "AC",
+                potencyUnitCodeField = "C48480"
+            };
+
+            MedicationData.directionsField = "TAKE ONE CAPSULE AT BEDTIME AS NEEDED FOR SLEEP";
+            MedicationData.writtenDateField = new IntegrationPartner.DateType()
+            {
+                itemElementNameField = IntegrationPartner.ItemChoiceType.DateTime,
+                itemField = new DateTime(2012, 11, 29)
+            };
+
+            MedicationData.daysSupplyField = "30";
+
+            MedicationData.refillsField = new IntegrationPartner.RxChangePrescribedMedicationTypeRefills[1];
+            MedicationData.refillsField[0] = new IntegrationPartner.RxChangePrescribedMedicationTypeRefills()
+            {
+                qualifierField = "R",
+                valueField = "0"
+            };
+
+            MedicationData.priorAuthorizationStatusField = "PATIENT'S INSURANCE REQUIRES A PRIOR AUTHORIZATION";
+            return MedicationData;
         }
         #endregion
     }

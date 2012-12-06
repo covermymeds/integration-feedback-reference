@@ -1,0 +1,216 @@
+﻿<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">
+      http://tempuri.org/IFeedbackService/UpdatePriorAuthorizationRequest
+    </Action>
+  </s:Header>
+  <s:Body>
+    <UpdatePriorAuthorizationRequest xmlns="http://tempuri.org/">
+      <FeedbackData xmlns:d4p1="http://schemas.datacontract.org/2004/07/CoverMyMeds.Feedback.IntegrationPartnerEndpoint" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <d4p1:AppealExpirationDate i:nil="true" />
+        <d4p1:CreatedBy>Test CMM Presciber User</d4p1:CreatedBy>
+        <d4p1:CreationDate>2012-11-29T13:15:17</d4p1:CreationDate>
+        <d4p1:Disposition>New</d4p1:Disposition>
+        <d4p1:FormName>Fancy Test Form</d4p1:FormName>
+        <d4p1:Id>A12B34</d4p1:Id>
+        <d4p1:PARequestData xmlns:d5p1="http://schemas.datacontract.org/2004/07/NCPDP.org.schema.SCRIPT">
+          <d5p1:benefitsCoordinationField i:nil="true" />
+          <d5p1:facilityField i:nil="true" />
+          <d5p1:medicationPrescribedField>
+            <d5p1:dateValidatedField i:nil="true" />
+            <d5p1:daysSupplyField>30</d5p1:daysSupplyField>
+            <d5p1:deliveredOnDateField i:nil="true" />
+            <d5p1:diagnosisField i:nil="true" />
+            <d5p1:directionsField>TAKE ONE CAPSULE AT BEDTIME AS NEEDED FOR SLEEP</d5p1:directionsField>
+            <d5p1:drugCodedField>
+              <d5p1:dEAScheduleField i:nil="true" />
+              <d5p1:drugDBCodeField i:nil="true" />
+              <d5p1:drugDBCodeQualifierField i:nil="true" />
+              <d5p1:formCodeField>C25158</d5p1:formCodeField>
+              <d5p1:formSourceCodeField>AA</d5p1:formSourceCodeField>
+              <d5p1:productCodeField i:nil="true" />
+              <d5p1:productCodeQualifierField i:nil="true" />
+              <d5p1:strengthCodeField>C28253</d5p1:strengthCodeField>
+              <d5p1:strengthField>30</d5p1:strengthField>
+              <d5p1:strengthSourceCodeField>AB</d5p1:strengthSourceCodeField>
+            </d5p1:drugCodedField>
+            <d5p1:drugCoverageStatusCodeField xmlns:d7p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" i:nil="true" />
+            <d5p1:drugDescriptionField>TEMAZEPAM 15MG</d5p1:drugDescriptionField>
+            <d5p1:drugUseEvaluationField i:nil="true" />
+            <d5p1:effectiveDateField i:nil="true" />
+            <d5p1:expirationDateField i:nil="true" />
+            <d5p1:lastFillDateField i:nil="true" />
+            <d5p1:noteField i:nil="true" />
+            <d5p1:periodEndField i:nil="true" />
+            <d5p1:priorAuthorizationField i:nil="true" />
+            <d5p1:priorAuthorizationStatusField>PATIENT'S INSURANCE REQUIRES A PRIOR AUTHORIZATION</d5p1:priorAuthorizationStatusField>
+            <d5p1:quantityField>
+              <d5p1:QuantityType>
+                <d5p1:codeListQualifierField>38</d5p1:codeListQualifierField>
+                <d5p1:potencyUnitCodeField>C48480</d5p1:potencyUnitCodeField>
+                <d5p1:unitSourceCodeField>AC</d5p1:unitSourceCodeField>
+                <d5p1:valueField>30</d5p1:valueField>
+              </d5p1:QuantityType>
+            </d5p1:quantityField>
+            <d5p1:refillsField>
+              <d5p1:RxChangePrescribedMedicationTypeRefills>
+                <d5p1:qualifierField>R</d5p1:qualifierField>
+                <d5p1:valueField>0</d5p1:valueField>
+              </d5p1:RxChangePrescribedMedicationTypeRefills>
+            </d5p1:refillsField>
+            <d5p1:structuredSIGField i:nil="true" />
+            <d5p1:substitutionsField i:nil="true" />
+            <d5p1:writtenDateField>
+              <d5p1:itemElementNameField>DateTime</d5p1:itemElementNameField>
+              <d5p1:itemField>2012-11-29T00:00:00</d5p1:itemField>
+            </d5p1:writtenDateField>
+          </d5p1:medicationPrescribedField>
+          <d5p1:medicationRequestedField i:nil="true" />
+          <d5p1:observationField i:nil="true" />
+          <d5p1:patientField>
+            <d5p1:addressField>
+              <d5p1:addressLine1Field>123 Strong Street</d5p1:addressLine1Field>
+              <d5p1:addressLine2Field>Apt. 1010</d5p1:addressLine2Field>
+              <d5p1:cityField>Springfield</d5p1:cityField>
+              <d5p1:placeLocationQualifierField />
+              <d5p1:stateField>MN</d5p1:stateField>
+              <d5p1:zipCodeField>12345</d5p1:zipCodeField>
+            </d5p1:addressField>
+            <d5p1:communicationNumbersField>
+              <d5p1:CommunicationType>
+                <d5p1:numberField>9875551234</d5p1:numberField>
+                <d5p1:qualifierField>WP</d5p1:qualifierField>
+              </d5p1:CommunicationType>
+              <d5p1:CommunicationType>
+                <d5p1:numberField>9875554321</d5p1:numberField>
+                <d5p1:qualifierField>HP</d5p1:qualifierField>
+              </d5p1:CommunicationType>
+            </d5p1:communicationNumbersField>
+            <d5p1:dateOfBirthField>
+              <d5p1:itemElementNameField>Date</d5p1:itemElementNameField>
+              <d5p1:itemField>1980-01-01T00:00:00</d5p1:itemField>
+            </d5p1:dateOfBirthField>
+            <d5p1:genderField>M</d5p1:genderField>
+            <d5p1:identificationField>
+              <d5p1:itemsElementNameField>
+                <d5p1:ItemsChoiceType1>SocialSecurity</d5p1:ItemsChoiceType1>
+                <d5p1:ItemsChoiceType1>PatientAccountNumber</d5p1:ItemsChoiceType1>
+              </d5p1:itemsElementNameField>
+              <d5p1:itemsField xmlns:d8p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                <d8p1:string>123456789</d8p1:string>
+                <d8p1:string>3Z123456</d8p1:string>
+              </d5p1:itemsField>
+            </d5p1:identificationField>
+            <d5p1:nameField>
+              <d5p1:firstNameField>Test</d5p1:firstNameField>
+              <d5p1:lastNameField>Patient</d5p1:lastNameField>
+              <d5p1:middleNameField>X</d5p1:middleNameField>
+              <d5p1:prefixField>Mr.</d5p1:prefixField>
+              <d5p1:suffixField i:nil="true" />
+            </d5p1:nameField>
+            <d5p1:patientLocationField i:nil="true" />
+            <d5p1:patientRelationshipField i:nil="true" />
+          </d5p1:patientField>
+          <d5p1:pharmacyField>
+            <d5p1:addressField>
+              <d5p1:addressLine1Field>321 Bart Ave.</d5p1:addressLine1Field>
+              <d5p1:addressLine2Field>Suite 145</d5p1:addressLine2Field>
+              <d5p1:cityField>Springfield</d5p1:cityField>
+              <d5p1:placeLocationQualifierField i:nil="true" />
+              <d5p1:stateField>OR</d5p1:stateField>
+              <d5p1:zipCodeField>97477</d5p1:zipCodeField>
+            </d5p1:addressField>
+            <d5p1:communicationNumbersField>
+              <d5p1:CommunicationType>
+                <d5p1:numberField>3215556789</d5p1:numberField>
+                <d5p1:qualifierField>FX</d5p1:qualifierField>
+              </d5p1:CommunicationType>
+            </d5p1:communicationNumbersField>
+            <d5p1:identificationField>
+              <d5p1:itemsElementNameField>
+                <d5p1:ItemsChoiceType>NCPDPID</d5p1:ItemsChoiceType>
+                <d5p1:ItemsChoiceType>NPI</d5p1:ItemsChoiceType>
+              </d5p1:itemsElementNameField>
+              <d5p1:itemsField xmlns:d8p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                <d8p1:string>1234567</d8p1:string>
+                <d8p1:string>312345677</d8p1:string>
+              </d5p1:itemsField>
+            </d5p1:identificationField>
+            <d5p1:pharmacistField>
+              <d5p1:firstNameField>John</d5p1:firstNameField>
+              <d5p1:lastNameField>Matrix</d5p1:lastNameField>
+              <d5p1:middleNameField i:nil="true" />
+              <d5p1:prefixField i:nil="true" />
+              <d5p1:suffixField>DP</d5p1:suffixField>
+            </d5p1:pharmacistField>
+            <d5p1:specialtyField i:nil="true" />
+            <d5p1:storeNameField>TestRx</d5p1:storeNameField>
+          </d5p1:pharmacyField>
+          <d5p1:prescriberField>
+            <d5p1:addressField>
+              <d5p1:addressLine1Field>123 Main St.</d5p1:addressLine1Field>
+              <d5p1:addressLine2Field i:nil="true" />
+              <d5p1:cityField>Springfield</d5p1:cityField>
+              <d5p1:placeLocationQualifierField i:nil="true" />
+              <d5p1:stateField>OR</d5p1:stateField>
+              <d5p1:zipCodeField>97477</d5p1:zipCodeField>
+            </d5p1:addressField>
+            <d5p1:clinicNameField i:nil="true" />
+            <d5p1:communicationNumbersField>
+              <d5p1:CommunicationType>
+                <d5p1:numberField>1235554567</d5p1:numberField>
+                <d5p1:qualifierField>FX</d5p1:qualifierField>
+              </d5p1:CommunicationType>
+              <d5p1:CommunicationType>
+                <d5p1:numberField>9875554321</d5p1:numberField>
+                <d5p1:qualifierField>WP</d5p1:qualifierField>
+              </d5p1:CommunicationType>
+            </d5p1:communicationNumbersField>
+            <d5p1:identificationField>
+              <d5p1:itemsElementNameField>
+                <d5p1:ItemsChoiceType>NPI</d5p1:ItemsChoiceType>
+                <d5p1:ItemsChoiceType>DEANumber</d5p1:ItemsChoiceType>
+              </d5p1:itemsElementNameField>
+              <d5p1:itemsField xmlns:d8p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+                <d8p1:string>1212121212</d8p1:string>
+                <d8p1:string>35123456</d8p1:string>
+              </d5p1:itemsField>
+            </d5p1:identificationField>
+            <d5p1:nameField>
+              <d5p1:firstNameField>John</d5p1:firstNameField>
+              <d5p1:lastNameField>Smith</d5p1:lastNameField>
+              <d5p1:middleNameField>H</d5p1:middleNameField>
+              <d5p1:prefixField>Dr.</d5p1:prefixField>
+              <d5p1:suffixField>MD</d5p1:suffixField>
+            </d5p1:nameField>
+            <d5p1:prescriberAgentField i:nil="true" />
+            <d5p1:specialtyField>2085R0001X</d5p1:specialtyField>
+          </d5p1:prescriberField>
+          <d5p1:requestField i:nil="true" />
+          <d5p1:supervisorField i:nil="true" />
+        </d4p1:PARequestData>
+        <d4p1:PlanOutcome>Unknown</d4p1:PlanOutcome>
+        <d4p1:Recipients>
+          <d4p1:RecipientType>
+            <d4p1:Identifier>UserXYZ123</d4p1:Identifier>
+            <d4p1:PresentOnDashboard>true</d4p1:PresentOnDashboard>
+            <d4p1:RecipientClass>User</d4p1:RecipientClass>
+          </d4p1:RecipientType>
+          <d4p1:RecipientType>
+            <d4p1:Identifier>GroupID456</d4p1:Identifier>
+            <d4p1:PresentOnDashboard>true</d4p1:PresentOnDashboard>
+            <d4p1:RecipientClass>Group</d4p1:RecipientClass>
+          </d4p1:RecipientType>
+          <d4p1:RecipientType>
+            <d4p1:Identifier>UserXYZ123</d4p1:Identifier>
+            <d4p1:PresentOnDashboard>false</d4p1:PresentOnDashboard>
+            <d4p1:RecipientClass>User</d4p1:RecipientClass>
+          </d4p1:RecipientType>
+        </d4p1:Recipients>
+        <d4p1:RequestSource>Prescriber</d4p1:RequestSource>
+        <d4p1:ReturnURL>https://www.covermymeds.com/request/view/</d4p1:ReturnURL>
+        <d4p1:UpdateDate>2012-12-06T12:51:52.3932121-05:00</d4p1:UpdateDate>
+      </FeedbackData>
+    </UpdatePriorAuthorizationRequest>
+  </s:Body>
+</s:Envelope>

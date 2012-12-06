@@ -1,0 +1,75 @@
+From the Script 10.6 Implementation Guide - Section 12.22
+EXAMPLE 20. PRESCRIPTION CHANGE REQUEST FROM PHARMACY FOR PRIOR AUTHORIZATION (EXCERPT)
+In this example, the pharmacy recognizes before the prescription can be dispensed, a prior authorization must be fulfilled. This example contains only the RXCHG from the pharmacy, with different examples of what a CHGRES might be from the prescriber.
+Prescription Change Request (from Pharmacy)
+
+UNA:+./*'
+UIB+UNOA:и++1234567+++77и163и:P+77777777:C+2ии41ии1:и7453и'
+UIH+SCRIPT:и1и:ии6:RXCHG+4444444+++2ии41ии1:и7453и'
+REQ+P'
+PVD+P1+77и163и:D3+++++MAIN STREET PHARMACY++61522и5656:TE'
+PVD+PC+6666666:иB+++JONES:MARK++++61522198ии:TE'
+PTT++19541225+SMITH:MARY+F+333445555:SY'
+DRU+P:TEMAZEPAM 15MG::::3и:::::::AA:C25158:AB:C28253+::3и:38:AC:C4848и+:TAKE ONE CAPSULE AT BEDTIME AS
+NEEDED FOR SLEEP+85:2ии41ии1:1и2*ZDS:3и:8и4++R:и+++PATIENT'S INSURANCE
+REQUIRES A PRIOR AUTHORIZATION'
+UIT+4444444+7'
+UIZ++1'
+
+
+-- Teardown and analysis work
+UNA
+:Component Data Element Separator
++Data Element Separator
+.Decimal Notation
+/Release Indicator
+*Repetition Separator
+'Segment Terminator
+UIB+UNOA:и++1234567+++77и163и:P+77777777:C+2ии41ии1:и7453и'
+UIH+SCRIPT:и1и:ии6:RXCHG+4444444+++2ии41ии1:и7453и'
+REQ+P'
+PVD+P1+77и163и:D3+++++MAIN STREET PHARMACY++61522и5656:TE'
+PVD+PC+6666666:иB+++JONES:MARK++++61522198ии:TE'
+PTT++19541225+SMITH:MARY+F+333445555:SY'
+DRU+P:
+TEMAZEPAM 15MG: --Description
+: -- Item Number
+: -- Code List Responsibility Agency
+: -- Code List Qualifier
+3и: -- Measurement Value - Drug Strengt
+: -- Code List Qualifer
+: -- Reference Number 
+: -- Reference Qualifier
+: -- Conditional Drug Name
+: -- Drug Name, Conditional
+: -- Drug name, Conditional
+AA: -- Code to require a Form Code
+C25158: -- Item Form Code
+AB: -- Code to Require  a Strength Code
+C28253+: -- Item Strength Code
+: -- DEA Schedule
+3и: -- Quantity Composite
+38: -- Quantity Qualifier No longer Supported
+AC:
+C4848и+
+:
+TAKE ONE CAPSULE AT BEDTIME AS NEEDED FOR SLEEP+ -- Directions
+85:2ии41ии1: -- Date Issued
+1и2*ZDS: -- Days Supply
+3и:
+8и4+
++
+R:
+и+
++
++
+PATIENT'S INSURANCE REQUIRES A PRIOR AUTHORIZATION'
+UIT+4444444+7'
+UIZ++1'
+
+DRU
+*ZDS:3и:8и4
+Second loop for another date. 
+ZDS is the qualifier for Days Supply. 
+3и is the number of days supply. 
+8и4 is the qualifier for Quantity of Days.
