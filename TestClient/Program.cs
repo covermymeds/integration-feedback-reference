@@ -1,4 +1,9 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="Program.cs" company="CoverMyMeds">
+//     Copyright (c) 2012 CoverMyMeds.  All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,42 +11,64 @@ using CoverMyMeds.Feedback.Utility;
 
 namespace CoverMyMeds.Feedback.TestClient
 {
+    /// <summary>
+    /// Console test harness to simulate sample data from a CoverMyMeds prior 
+    /// authorization being sent to an Integration Partners feedback loop
+    /// endpoint implemented as a .Net 4.0 WCF service.
+    /// </summary>
+    /// <remarks>
+    /// The feedback loop endpoint is referenced as a project
+    /// service reference from with this solution
+    /// </remarks>
     class Program
     {
         static void Main(string[] args)
         {
-            // Establishing Feedback Loop Endpoint
-            Console.WriteLine("Beginning Client Test");
+            Console.WriteLine("Beginning Client Test\n");
             try
             {
+                Console.WriteLine("Establishing Feedback Loop Endpoint\n");
                 IntegrationPartner.FeedbackServiceClient IPFeedbackService = new IntegrationPartner.FeedbackServiceClient();
 
-                // Creating a SOAP inspector to see the XML as it is sent out and attaching it to the endpoint
+                Console.WriteLine("Creating a SOAP inspector to see the XML as it is " +
+                    "sent out and adding it to the endpoint behaviors\n");
                 WcfSoapInspector wcfOut = new WcfSoapInspector();
                 IPFeedbackService.Endpoint.Behaviors.Add(wcfOut);
 
-                IPFeedbackService.UpdatePriorAuthorizationRequest(GetSampleFeedbackUpdate());
+                Console.WriteLine("Loading sample data\n");
+                IntegrationPartner.FeedbackUpdate SampleData = GetSampleFeedbackUpdate();
 
+                Console.WriteLine("Submitting sample data to Integration Partner feedback loop endpoint\n");
+                IPFeedbackService.UpdatePriorAuthorizationRequest(SampleData);
+
+                Console.WriteLine("\nSample data succesfully sent. Displaying outbound XML message\n");
                 Console.WriteLine(wcfOut.sentMessages[0]);
             }
             catch (Exception ex)
             {
+                Console.WriteLine("Error occurred attempting to send sample data\n");
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
-                //throw;
             }
-            Console.WriteLine("Test Complete");
+            Console.WriteLine("Client Test Complete (press any key to continue)");
             Console.ReadLine();
         }
 
+        /// <summary>
+        /// Create a sample PA Request update for submission to a sample WCF project
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks>
+        /// This sample update would be representative of a newly created PA Request
+        /// </remarks>
         private static IntegrationPartner.FeedbackUpdate GetSampleFeedbackUpdate()
         {
             IntegrationPartner.FeedbackUpdate PARequest = new IntegrationPartner.FeedbackUpdate();
 
             PARequest.Id = "A12B34";
-            PARequest.ReturnURL = "https://www.covermymeds.com/request/view/";
+            PARequest.ReturnURL = "https://www.covermymeds.com/request/view/A12B34";
             PARequest.RequestSource = IntegrationPartner.RequestSourceType.Prescriber;
-            PARequest.CreatedBy = "Test CMM Presciber User";
+            PARequest.CreatedBy = "Test CMM Prescriber User";
             PARequest.CreationDate = new DateTime(2012, 11, 29, 13, 15, 17);
             PARequest.UpdateDate = DateTime.Now;
             PARequest.AppealExpirationDate = null;
@@ -54,6 +81,15 @@ namespace CoverMyMeds.Feedback.TestClient
             return PARequest;
         }
 
+        /// <summ>
+        /// Creates an array of Recipients representing the various types indicated by
+        /// the RecipientClass enumeration.
+        /// </summary>
+        /// <remarks>
+        /// One recipient has the 'PresentOnDashboard' set to false indicating a user who has deleted
+        /// a request from their dashboard.
+        /// </remarks>
+        /// <returns>RecipientType array</returns>
         private static IntegrationPartner.RecipientType[] GetSampleRecipientList()
         {
             List<IntegrationPartner.RecipientType> lsRet = new List<IntegrationPartner.RecipientType>();
@@ -63,25 +99,29 @@ namespace CoverMyMeds.Feedback.TestClient
             {
                 Identifier = "UserXYZ123",
                 RecipientClass = IntegrationPartner.RecipientClassType.User,
-                PresentOnDashboard = true
+                IsDeletedForRecipient = false
             });
             // A group that a user with membership in will have access to a PA request
             lsRet.Add(new IntegrationPartner.RecipientType()
             {
                 Identifier = "GroupID456",
                 RecipientClass = IntegrationPartner.RecipientClassType.Group,
-                PresentOnDashboard = true
+                IsDeletedForRecipient = false
             });
             // A user who no longer wishes to see or be alerted about the PA. Archived request
             lsRet.Add(new IntegrationPartner.RecipientType()
             {
                 Identifier = "UserXYZ123",
                 RecipientClass = IntegrationPartner.RecipientClassType.User,
-                PresentOnDashboard = false
+                IsDeletedForRecipient = true
             });
             return lsRet.ToArray();
         }
 
+        /// <summary>
+        /// Building a PA Request data collection based on the Script 10.6 schema
+        /// </summary>
+        /// <returns>RxChangeRequest</returns>
         private static IntegrationPartner.RxChangeRequest GetSampleRequestFeedbackData()
         {
             IntegrationPartner.RxChangeRequest rxRet = new IntegrationPartner.RxChangeRequest();
@@ -245,6 +285,10 @@ namespace CoverMyMeds.Feedback.TestClient
             return PharmacyData;
         }
 
+        /// <summary>
+        /// Sample Medication data package. Based on the sample used in the Script 10.6 documentation
+        /// </summary>
+        /// <returns></returns>
         private static IntegrationPartner.RxChangePrescribedMedicationType GetSampleMedicationData()
         {
             //DRU+P:TEMAZEPAM 15MG::::3Ø:::::::AA:C25158:AB:C28253+::3Ø:38:AC:C4848Ø+:TAKE ONE CAPSULE AT BEDTIME AS
@@ -289,6 +333,7 @@ namespace CoverMyMeds.Feedback.TestClient
             MedicationData.priorAuthorizationStatusField = "PATIENT'S INSURANCE REQUIRES A PRIOR AUTHORIZATION";
             return MedicationData;
         }
+
         #endregion
     }
 }

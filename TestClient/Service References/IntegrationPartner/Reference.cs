@@ -472,7 +472,7 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
         
         private string IdentifierField;
         
-        private bool PresentOnDashboardField;
+        private bool IsDeletedForRecipientField;
         
         private CoverMyMeds.Feedback.TestClient.IntegrationPartner.RecipientClassType RecipientClassField;
         
@@ -500,14 +500,14 @@ namespace CoverMyMeds.Feedback.TestClient.IntegrationPartner {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
-        public bool PresentOnDashboard {
+        public bool IsDeletedForRecipient {
             get {
-                return this.PresentOnDashboardField;
+                return this.IsDeletedForRecipientField;
             }
             set {
-                if ((this.PresentOnDashboardField.Equals(value) != true)) {
-                    this.PresentOnDashboardField = value;
-                    this.RaisePropertyChanged("PresentOnDashboard");
+                if ((this.IsDeletedForRecipientField.Equals(value) != true)) {
+                    this.IsDeletedForRecipientField = value;
+                    this.RaisePropertyChanged("IsDeletedForRecipient");
                 }
             }
         }
