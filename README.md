@@ -7,7 +7,11 @@ This basic reference implementation is a Visual Studio 2010 solution with a WCF 
 This code is provided only for reference. Any production implementation would need to include provisions for securing communications between CoverMyMeds and the integration partner.
 ## Visual Studio 2010 Solution Project Breakdown
 ### IntegrationPartnerEndpoint
+<<<<<<< HEAD
 A simple WCF 4.0 service exposes a data contract that contains fields and enumerations for describing the status of a prior authorization request within CoverMyMeds. Also included is a data contract object based on the NCPDP.org Script 10.6 schema. Using the RxChangeRequest definition, information contained in the Prior Authorization Request is included in the SOAP service definition set by the WCF project.
+=======
+A simple WCF 4.0 service exposing a data contract that contains fields and enumerations for describing the status of a prior authorization request within CoverMyMeds. Also included is a data contract based on the NCPDP.org Script 10.6 schema. Using the RxChangeRequest definition, information contained in the PA Request is included in the SOAP service definition set by the WCF project.
+>>>>>>> 62f9b8ff81eda71f679b666f39b37ff1895f45ed
 
 The service defines a single operation `UpdatePriorAuthorizationRequest` for accepting the `FeedbackUpdate` data object. New requests within CoverMyMeds would trigger sending the same format data object as updates to existing PA requests. Typically to prevent difficulties with maintaining a historical listing of the request updates in the integration partner system that would require extra work in ensuring that feedback updates have arrived in the proper sequence, the update is sent as a simple snapshot of the request at the moment the message is built for submission. The `FeedbackUpdate.UpdateDateField` will have a datetime value that can be used to determine which message is the most recent and therefore has the most up-to-date information.
 
@@ -17,4 +21,8 @@ Typical integrations include establishing Single Sign On connectivity between Co
 ### Script106
 A C# class project used by the WCF service to create the RxChangeRequest data object for storing relevant data from a prior authorization request. Using the Visual Studio command prompt tool `XSD.exe` on the NCPDP.org SCRIPT 10.6 schema generates a class file with all the appropriate serializable data elements needed.
 ### TestClient
+<<<<<<< HEAD
 This project is intended to serve as a test harness for creating the Integration Partner feedback loop endpoint. When finalizing development and production CoverMyMeds performs this piece of the integration project . The test client console application includes a Project Service Reference to the IntegrationPartnerEndpoint WCF project. Using the data structure provided by the WCF interface, a sample PA Request update is packaged and sent to the WCF service project (hosted by VS2010 built-in webserver). 
+=======
+This project is intended to serve as a test harness for creating the Integration Partner feedback loop endpoint. When finalizing development and production CoverMyMeds performs this piece of the integration project . The test client console application includes a Project Service Reference to the IntegrationPartnerEndpoint WCF project. Using the data structure provided by the WCF interface, a sample PA Request update is packaged and sent to the WCF service project (hosted by VS2010 built-in webserver). 
+>>>>>>> 62f9b8ff81eda71f679b666f39b37ff1895f45ed
