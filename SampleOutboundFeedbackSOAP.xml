@@ -1,14 +1,15 @@
 ﻿<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
   <s:Header>
     <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">
-      http://tempuri.org/IFeedbackService/UpdatePriorAuthorizationRequest
+      http://tempuri.org/IFeedbackService/UpdatePriorAuthor
+      izationRequest
     </Action>
   </s:Header>
   <s:Body>
     <UpdatePriorAuthorizationRequest xmlns="http://tempuri.org/">
       <FeedbackData xmlns:d4p1="http://schemas.datacontract.org/2004/07/CoverMyMeds.Feedback.IntegrationPartnerEndpoint" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
         <d4p1:AppealExpirationDate i:nil="true" />
-        <d4p1:CreatedBy>Test CMM Presciber User</d4p1:CreatedBy>
+        <d4p1:CreatedBy>Test CMM Prescriber User</d4p1:CreatedBy>
         <d4p1:CreationDate>2012-11-29T13:15:17</d4p1:CreationDate>
         <d4p1:Disposition>New</d4p1:Disposition>
         <d4p1:FormName>Fancy Test Form</d4p1:FormName>
@@ -193,23 +194,23 @@
         <d4p1:Recipients>
           <d4p1:RecipientType>
             <d4p1:Identifier>UserXYZ123</d4p1:Identifier>
-            <d4p1:PresentOnDashboard>true</d4p1:PresentOnDashboard>
+            <d4p1:IsDeletedForRecipient>false</d4p1:IsDeletedForRecipient>
             <d4p1:RecipientClass>User</d4p1:RecipientClass>
           </d4p1:RecipientType>
           <d4p1:RecipientType>
             <d4p1:Identifier>GroupID456</d4p1:Identifier>
-            <d4p1:PresentOnDashboard>true</d4p1:PresentOnDashboard>
+            <d4p1:IsDeletedForRecipient>false</d4p1:IsDeletedForRecipient>
             <d4p1:RecipientClass>Group</d4p1:RecipientClass>
           </d4p1:RecipientType>
           <d4p1:RecipientType>
             <d4p1:Identifier>UserXYZ123</d4p1:Identifier>
-            <d4p1:PresentOnDashboard>false</d4p1:PresentOnDashboard>
+            <d4p1:IsDeletedForRecipient>true</d4p1:IsDeletedForRecipient>
             <d4p1:RecipientClass>User</d4p1:RecipientClass>
           </d4p1:RecipientType>
         </d4p1:Recipients>
         <d4p1:RequestSource>Prescriber</d4p1:RequestSource>
-        <d4p1:ReturnURL>https://www.covermymeds.com/request/view/</d4p1:ReturnURL>
-        <d4p1:UpdateDate>2012-12-06T12:51:52.3932121-05:00</d4p1:UpdateDate>
+        <d4p1:ReturnURL>https://www.covermymeds.com/request/view/A12B34</d4p1:ReturnURL>
+        <d4p1:UpdateDate>2012-12-18T10:35:06.319357-05:00</d4p1:UpdateDate>
       </FeedbackData>
     </UpdatePriorAuthorizationRequest>
   </s:Body>

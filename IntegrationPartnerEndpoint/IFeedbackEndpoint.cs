@@ -1,4 +1,9 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="IFeedbackEndpoint.cs" company="CoverMyMeds">
+//     Copyright (c) 2012 CoverMyMeds.  All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -8,6 +13,9 @@ using System.Text;
 
 namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
 {
+    /// <summary>
+    /// Defines the service for recieving a PA Request update from CoverMyMeds
+    /// </summary>
     [ServiceContract]
     public interface IFeedbackService
     {
@@ -15,6 +23,15 @@ namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
         void UpdatePriorAuthorizationRequest(FeedbackUpdate FeedbackData);
     }
 
+    /// <summary>
+    /// Defines the data structure for a PA Request update sent from CoverMyMeds
+    /// </summary>
+    /// <remarks>
+    /// This sample uses the Script 10.6 RxChangeRequest schema to store
+    /// information from a prior authorization request within CoverMyMeds.
+    /// Additional data submitted with the RxChangeRequest relays what the status 
+    /// is of the request within CMM and the users associated with it
+    /// </remarks>
     [DataContract]
     public class FeedbackUpdate
     {

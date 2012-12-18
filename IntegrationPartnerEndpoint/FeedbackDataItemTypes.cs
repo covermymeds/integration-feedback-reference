@@ -1,18 +1,23 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------
+// <copyright file="FeedbackDataItemTypes.cs" company="CoverMyMeds">
+//     Copyright (c) 2012 CoverMyMeds.  All rights reserved.
+// </copyright>
+//-----------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
 {
-
+    /// <summary>
+    /// Status of the Prior Authorization Request with the plan
+    /// </summary>
     [System.SerializableAttribute()]
     public enum DispositionType
     {
         New,
-        /// <remarks>Includes status of PA Request, Question Request</remarks>
         SentToPlan,
-        /// <remarks>Includes Appeal Response, PA Response, Question Response</remarks>
         ResponseFromPlan,
         AppealedToPlan,
         Failure,
@@ -21,6 +26,9 @@ namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
         Deleted
     }
 
+    /// <summary>
+    /// Status of the PA Request in the CoverMyMeds application
+    /// </summary>
     [System.SerializableAttribute()]
     public enum PlanOutcomeType
     {
@@ -33,6 +41,9 @@ namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
         NotApplicable
     }
 
+    /// <summary>
+    /// Enumeration for the different recipients avaliable for linking to a PA Request
+    /// </summary>
     [System.SerializableAttribute()]
     public enum RecipientClassType
     {
@@ -41,15 +52,20 @@ namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
         Workqueue
     }
 
-    //recipient enum for sharing with group, work queue or single user as the qualifier
-    [System.SerializableAttribute()]
+    /// <summary>
+    /// Recipient type for sharing with group, work queue or single user as the qualifier
+    /// </summary>
+    [System.Serializable]
     public class RecipientType
     {
         public string Identifier;
-        RecipientClassType RecipientClass;
-        bool PresentOnDashboard;
+        public RecipientClassType RecipientClass;
+        public bool IsDeletedForRecipient;
     }
 
+    /// <summary>
+    /// Describes the method by which the PA Request was created
+    /// </summary>
     [System.SerializableAttribute()]
     public enum RequestSourceType
     {
@@ -58,8 +74,4 @@ namespace CoverMyMeds.Feedback.IntegrationPartnerEndpoint
         ElectronicPrescribing,
         RejectedPharmacyClaim
     }
-    // Prescriber Manual Prescriber, 
-    // Pharmacy - Manual Pharmacy, 
-    // ElectronicPrescription - Electronic Prescribing, 
-    // RejectedPharmacyClaim - Obvious
 }

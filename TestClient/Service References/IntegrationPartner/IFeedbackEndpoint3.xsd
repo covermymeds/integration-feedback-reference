@@ -52,7 +52,7 @@
   <xs:complexType name="RecipientType">
     <xs:sequence>
       <xs:element name="Identifier" nillable="true" type="xs:string" />
-      <xs:element name="PresentOnDashboard" type="xs:boolean" />
+      <xs:element name="IsDeletedForRecipient" type="xs:boolean" />
       <xs:element name="RecipientClass" type="tns:RecipientClassType" />
     </xs:sequence>
   </xs:complexType>

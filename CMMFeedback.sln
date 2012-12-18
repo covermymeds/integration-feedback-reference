@@ -9,8 +9,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.md = LICENSE.md
 		README.md = README.md
-		SampleOutboudSOAP.xml = SampleOutboudSOAP.xml
-		SampleRxChangeMessage.txt = SampleRxChangeMessage.txt
+		SampleIntegrationPartnerDataObject.xml = SampleIntegrationPartnerDataObject.xml
+		SampleOutboundFeedbackSOAP.xml = SampleOutboundFeedbackSOAP.xml
+		SampleRxChangeEDIMessage.txt = SampleRxChangeEDIMessage.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestClient", "TestClient\TestClient.csproj", "{9DCEA25B-1A39-477B-AEB5-1BB7BBD756F3}"
